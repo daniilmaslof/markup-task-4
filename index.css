@@ -1,6 +1,6 @@
 :root
 {
-    --grid: inline-block;
+    --card-display: inline-block;
     --card-full: none;
     --card-with: 350px;
     --card-brief: block;
@@ -8,10 +8,9 @@
 
 input[value='list']:checked ~ main
 {
-    --margin-auto: auto;
     --card-full: block;
     --card-brief: none;
-    --grid: block;
+    --card-display: block;
     --card-with: 500px;
     font-size: 20px;
 }
@@ -24,9 +23,10 @@ input[value='list']:checked ~ main .card
 
 .card
 {
-    display: var(--grid);
+    display: var(--card-display);
     vertical-align: top;
     width: var(--card-with);
+    height: 400px;
     overflow: hidden;
     margin-right: 20px;
     margin-bottom: 20px;
@@ -77,7 +77,15 @@ input[value='list']:checked ~ main .card
     margin: 0;
     color: #777;
     transition: .3s;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
 
+.list-item__full
+{
+    white-space: normal;
+    max-height: 2em;
 }
 
 .list-item:hover
@@ -88,6 +96,7 @@ input[value='list']:checked ~ main .card
 .card-avatar
 {
     height: 250px;
+    width: 350px;
     position: relative;
     margin: auto;
     background: #3949ab;
